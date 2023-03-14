@@ -1,0 +1,217 @@
+li {
+    transition: all 0.16s;
+  }
+  
+  .dragged {
+    opacity: 0.5;
+  }
+  
+  .target:not(:has(button)):not(.dragged):not(:has(+ .dragged)) {
+    padding-bottom: 1.8rem;
+    background-color: var(--shadeThree);
+  }
+  
+  .target:not(.dragged):not(:has(+ .dragged)) > input,
+  .target:not(.dragged):not(:has(+ .dragged)) {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .target:not(.dragged) + li:not(.dragged) > input,
+  .target:not(.dragged) + li:not(.dragged) > button {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --h: 168;
+    --s: 100%;
+    --l: 29%;
+    --a: 1;
+  
+    --tintFour: hsla(var(--h), var(--s), calc(var(--l) + 3%), var(--a));
+    --tintThree: hsla(var(--h), var(--s), calc(var(--l) + 3%), var(--a));
+    --tintTwo: hsla(var(--h), var(--s), calc(var(--l) + 3%), var(--a));
+    --tintOne: hsla(var(--h), var(--s), calc(var(--l) + 3%), var(--a));
+    --mainColor: hsla(var(--h), var(--s), var(--l), var(--a));
+    --shadeOne: hsla(var(--h), var(--s), calc(var(--l) - 3%), var(--a));
+    --shadeTwo: hsla(var(--h), var(--s), calc(var(--l) - 6%), var(--a));
+    --shadeThree: hsla(var(--h), var(--s), calc(var(--l) - 12%), var(--a));
+    --shadeFour: hsla(var(--h), var(--s), calc(var(--l) - 17%), var(--a));
+  
+    --textColor: white;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: 'Roboto', 'IBM Plex Sans Arabic', sans-serif;
+    line-height: 1;
+    color: var(--textColor);
+    position: relative;
+    background-color: var(--mainColor);
+  
+    height: 100vh;
+  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  main {
+    overflow: auto;
+    width: 100vw;
+  }
+  
+  /*  */
+  
+  #invisible {
+    display: none;
+  }
+  
+  /*  */
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+    gap: 2rem;
+    background-color: var(--mainColor);
+    border-radius: 7px;
+    margin: 0 1rem;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1{
+    font-size: 8rem;
+    padding-top: 7rem;
+    padding-bottom: 12rem;
+  }
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 4px;
+    padding-bottom: 0.8rem;
+  }
+  
+  #first-li {
+    height: 2rem;
+    width: 100%;
+  }
+  
+  .task-input,
+  .add-task-btn {
+    height: 2.8rem;
+    border-radius: 4px;
+    border: none;
+    font-family: inherit;
+  }
+  
+  .task-input {
+    width: 100%;
+    padding: 0 3.8rem 0 1.2rem;
+    background-color: #fff;
+    color: black;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+  
+  .edit-task-icon,
+  .delete-task-icon,
+  .up-down-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: black;
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  .edit-task-icon {
+    display: flex;
+    right: 32px;
+  }
+  
+  .delete-task-icon {
+    right: 10px;
+  }
+  
+
+  
+  .menu-btn {
+    width: 4.1rem;
+    height: 4.1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+  }
+  
+  .menu-btn:hover {
+    background-color: var(--shadeOne);
+  }
+  
+  .menu-icon {
+    color: var(--textColor);
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+  
+  .add-task-btn {
+    transition: all 0.3s;
+    color: var(--textColor);
+    font-weight: 400;
+    background-color: var(--shadeTwo);
+  }
+  
+  .add-task-btn:hover {
+    background-color: var(--shadeThree);
+    cursor: pointer;
+  }
+  
+  
+  /* query */
+  
+  @media (max-width: 43.75em) {
+    html {
+      font-size: 50%;
+    }
+    main {
+      grid-template-columns: 1fr;
+      height: 100%;
+    }
+    .edit-task-icon {
+      display: block;
+    }
+
+  }
+    
